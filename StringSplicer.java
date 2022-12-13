@@ -39,6 +39,7 @@ public class StringSplicer {
             int cutIndex = partitions[0] + shift;
             if (results.containsKey(partitions[0])){
                 // Recursive call
+                // Use the string from cutIndex to the end of the string, as the first part is what was 'cut off'
                 return results.get(partitions[0]) + leftToRight(s.substring(cutIndex), Arrays.copyOfRange(partitions, 1, partitions.length), staticLength);
             } else {
                 String submarine = s.substring(0, cutIndex);
@@ -67,6 +68,7 @@ public class StringSplicer {
             int cutIndex = partitions[lastIndex];
             if (results.containsKey(partitions[lastIndex])){
                 // Recursive call
+                // Use the string from cutIndex to the end of the string, as the first part is what was 'cut off'
                 return results.get(partitions[lastIndex]) + rightToLeft(s.substring(cutIndex), Arrays.copyOfRange(partitions, 0, lastIndex), staticLength);
             } else {
                 String submarine = s.substring(0, cutIndex);
